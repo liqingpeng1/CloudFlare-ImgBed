@@ -181,7 +181,7 @@ export async function endUpload(context, fileId, metadata) {
     const { env, url } = context;
 
     // 清除CDN缓存
-    const cdnUrl = `https://${url.hostname}/file/${fileId}`;
+    const cdnUrl = `https://${url.hostname}/images/${fileId}`;
     const normalizedFolder = (url.searchParams.get('uploadFolder') || '').replace(/^\/+/, '').replace(/\/{2,}/g, '/').replace(/\/$/, '');
     await purgeCDNCache(env, cdnUrl, url, normalizedFolder);
     
