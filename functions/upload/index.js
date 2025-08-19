@@ -164,9 +164,9 @@ async function processFileUpload(context, formdata = null) {
     const returnFormat = url.searchParams.get('returnFormat') || 'default';
     let returnLink = '';
     if (returnFormat === 'full') {
-        returnLink = `${url.origin}/images/${fullId}`;
+        returnLink = `${url.origin}/file/${fullId}`;
     } else {
-        returnLink = `/images/${fullId}`;
+        returnLink = `/file/${fullId}`;
     }
 
     /* ====================================不同渠道上传======================================= */
@@ -342,7 +342,7 @@ async function uploadFileToS3(context, fullId, metadata, returnLink) {
                 return createResponse("Error: Failed to write to KV database", { status: 500 });
             }
 
-            const moderateUrl = `https://${url.hostname}/images/${fullId}`;
+            const moderateUrl = `https://${url.hostname}/file/${fullId}`;
             await purgeCDNCache(env, moderateUrl, url);
             metadata.Label = await moderateContent(env, moderateUrl);
         }
@@ -454,7 +454,7 @@ async function uploadFileToTelegram(context, fullId, metadata, fileExt, fileName
 
 
         // 图像审查
-        const moderateUrl = `https://api.telegram.org/images/bot${tgBotToken}/${filePath}`;
+        const moderateUrl = `https://api.telegram.org/file/bot${tgBotToken}/${filePath}`;
         metadata.Label = await moderateContent(env, moderateUrl);
 
         // 更新metadata，写入KV数据库

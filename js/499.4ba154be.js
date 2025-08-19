@@ -90,13 +90,13 @@
                         }), (0, h.bF)(S, {label: "文件预览"}, {
                             default: (0, h.k6)(({row: e}) => [e.metadata?.FileType?.includes("image") ? ((0, h.uX)(), (0, h.Wv)(A, {
                                 key: 0,
-                                src: "/images/" + e.id + "?from=admin",
+                                src: "/file/" + e.id + "?from=admin",
                                 fit: "cover",
                                 lazy: "",
                                 style: {width: "100px", height: "100px"}
                             }, null, 8, ["src"])) : e.metadata?.FileType?.includes("video") ? ((0, h.uX)(), (0, h.CE)("video", {
                                 key: 1,
-                                src: "/images/" + e.id + "?from=admin",
+                                src: "/file/" + e.id + "?from=admin",
                                 controls: "",
                                 style: {width: "100px", height: "100px"}
                             }, null, 8, y)) : ((0, h.uX)(), (0, h.CE)("div", v, [(0, h.bF)(D, {

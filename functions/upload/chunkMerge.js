@@ -424,9 +424,9 @@ async function mergeR2ChunksInfo(context, uploadId, completedChunks, metadata) {
         const returnFormat = url.searchParams.get('returnFormat') || 'default';
         let updatedReturnLink = '';
         if (returnFormat === 'full') {
-            updatedReturnLink = `${url.origin}/images/${finalFileId}`;
+            updatedReturnLink = `${url.origin}/file/${finalFileId}`;
         } else {
-            updatedReturnLink = `/images/${finalFileId}`;
+            updatedReturnLink = `/file/${finalFileId}`;
         }
         
         return {
@@ -525,9 +525,9 @@ async function mergeS3ChunksInfo(context, uploadId, completedChunks, metadata) {
         const returnFormat = url.searchParams.get('returnFormat') || 'default';
         let updatedReturnLink = '';
         if (returnFormat === 'full') {
-            updatedReturnLink = `${url.origin}/images/${finalFileId}`;
+            updatedReturnLink = `${url.origin}/file/${finalFileId}`;
         } else {
-            updatedReturnLink = `/images/${finalFileId}`;
+            updatedReturnLink = `/file/${finalFileId}`;
         }
 
         return {
@@ -593,9 +593,9 @@ async function mergeTelegramChunksInfo(context, uploadId, completedChunks, metad
         const returnFormat = url.searchParams.get('returnFormat') || 'default';
         let updatedReturnLink = '';
         if (returnFormat === 'full') {
-            updatedReturnLink = `${url.origin}/images/${finalFileId}`;
+            updatedReturnLink = `${url.origin}/file/${finalFileId}`;
         } else {
-            updatedReturnLink = `/images/${finalFileId}`;
+            updatedReturnLink = `/file/${finalFileId}`;
         }
 
         return {

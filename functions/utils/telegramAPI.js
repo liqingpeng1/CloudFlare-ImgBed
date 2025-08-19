@@ -127,7 +127,7 @@ export class TelegramAPI {
             throw new Error(`File path not found for fileId: ${fileId}`);
         }
 
-        const fullURL = `https://api.telegram.org/images/bot${this.botToken}/${filePath}`;
+        const fullURL = `https://api.telegram.org/file/bot${this.botToken}/${filePath}`;
         const response = await fetch(fullURL, {
             headers: this.defaultHeaders
         });

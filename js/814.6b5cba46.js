@@ -330,7 +330,7 @@
                 }, disableTooltip() {
                     return window.innerWidth < 768
                 }, rootUrl() {
-                    return "true" === this.useCustomUrl ? this.customUrlPrefix : this.urlPrefix || `${window.location.protocol}//${window.location.host}/images/`
+                    return "true" === this.useCustomUrl ? this.customUrlPrefix : this.urlPrefix || `${window.location.protocol}//${window.location.host}/file/`
                 }, pasteCardMethodButtonSize() {
                     return this.fileList.length || window.innerWidth < 768 ? "small" : "medium"
                 }
@@ -489,8 +489,8 @@
                     try {
                         const o = this.fileList.find(e => e.uid === t.uid).uploadChannel || this.uploadChannel;
                         if ("external" !== o) {
-                            const o = e.data[0].src.replace("/images/", "");
-                            this.fileList.find(e => e.uid === t.uid).url = `${window.location.protocol}//${window.location.host}/images/` + o, this.fileList.find(e => e.uid === t.uid).finalURL = this.rootUrl + o, this.fileList.find(e => e.uid === t.uid).mdURL = `![${t.name}](${this.rootUrl + o})`, this.fileList.find(e => e.uid === t.uid).htmlURL = `<img src="${this.rootUrl + o}" alt="${t.name}" width=100% />`, this.fileList.find(e => e.uid === t.uid).ubbURL = `[img]${this.rootUrl + o}[/img]`, this.fileList.find(e => e.uid === t.uid).srcID = o
+                            const o = e.data[0].src.replace("/file/", "");
+                            this.fileList.find(e => e.uid === t.uid).url = `${window.location.protocol}//${window.location.host}/file/` + o, this.fileList.find(e => e.uid === t.uid).finalURL = this.rootUrl + o, this.fileList.find(e => e.uid === t.uid).mdURL = `![${t.name}](${this.rootUrl + o})`, this.fileList.find(e => e.uid === t.uid).htmlURL = `<img src="${this.rootUrl + o}" alt="${t.name}" width=100% />`, this.fileList.find(e => e.uid === t.uid).ubbURL = `[img]${this.rootUrl + o}[/img]`, this.fileList.find(e => e.uid === t.uid).srcID = o
                         }
                         this.fileList.find(e => e.uid === t.uid).progreess = 100, this.fileList.find(e => e.uid === t.uid).status = "success", this.$message({
                             type: "success",
@@ -1227,7 +1227,7 @@
                     return window.innerWidth < 768
                 },
                 urlPrefix() {
-                    return this.userConfig?.urlPrefix || `${window.location.protocol}//${window.location.host}/images/`
+                    return this.userConfig?.urlPrefix || `${window.location.protocol}//${window.location.host}/file/`
                 }
             },
             mounted() {
